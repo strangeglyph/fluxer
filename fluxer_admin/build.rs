@@ -688,17 +688,6 @@ fn build_tailwind(manifest_dir: &Path, out_dir: &Path) {
     fs::create_dir_all(&output_dir).expect("failed to create generated static dir");
     let input = manifest_dir.join("src/styles/app.css");
     let output = output_dir.join("app.css");
-    let candidates = [
-        manifest_dir.join("node_modules/.bin/tailwindcss"),
-        manifest_dir.join("../node_modules/.bin/tailwindcss"),
-    ];
-    let Some(cli) = candidates.iter().find(|c| c.exists()) else {
-        panic!(
-            "tailwindcss CLI not found. Run `pnpm install` in fluxer_admin/.\n\
-             Searched: {:?}",
-            candidates
-        );
-    };
     let status = Command::new(cli)
         .arg("-i")
         .arg(&input)
