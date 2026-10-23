@@ -688,7 +688,7 @@ fn build_tailwind(manifest_dir: &Path, out_dir: &Path) {
     fs::create_dir_all(&output_dir).expect("failed to create generated static dir");
     let input = manifest_dir.join("src/styles/app.css");
     let output = output_dir.join("app.css");
-    let status = Command::new(cli)
+    let status = Command::new("tailwindcss")
         .arg("-i")
         .arg(&input)
         .arg("-o")
