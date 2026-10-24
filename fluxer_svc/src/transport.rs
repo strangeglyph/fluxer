@@ -267,7 +267,7 @@ impl NatsMessage {
     }
 }
 
-#[cfg(debug_assertions)]
+#[cfg(test)]
 mod in_memory {
     use super::{Transport, TransportMessage, TransportSubscriber};
     use async_trait::async_trait;
@@ -458,5 +458,5 @@ mod in_memory {
     }
 }
 
-#[cfg(debug_assertions)]
+#[cfg(test)]
 pub use in_memory::InMemoryTransport;
